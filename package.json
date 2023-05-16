@@ -1,0 +1,17 @@
+{
+  "name": "mpg_wizard",
+  "version": "1.0.0",
+  "description": "This application will help people log their car gas and fuel fill-ups to determine the best price and the best location that gives them the best MPG.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alfred De La Costa",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

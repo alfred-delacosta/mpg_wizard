@@ -1,0 +1,5 @@
+# Single Files
+.env
+
+# Folders
+node_modules
