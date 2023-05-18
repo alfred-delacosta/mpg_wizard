@@ -14,6 +14,8 @@ const path = require('node:path');
 const express = require('express');
 const app = express();
 const carsApi = require(path.resolve('API', 'cars'));
+const userApi = require(path.resolve('API', 'users'));
+const gastStationApi = require(path.resolve('API', 'gasStations'));
 
 async function main() {
   // Connect to db
@@ -26,6 +28,8 @@ async function main() {
   app.use(express.json());
 
   app.use('/api/cars', carsApi);
+  app.use('/api/users', userApi);
+  app.use('/api/gasstations', gastStationApi);
 
   app.listen(DEV_PORT, () => {
     console.log(`Listening on ${DEV_PORT}`);
