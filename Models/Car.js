@@ -20,7 +20,10 @@ const carSchema = new mongoose.Schema({
         type: Number,
         required: [true, "A year is required."],
         trim: true
-    }
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId, ref: 'User'
+    },
 });
 
 module.exports = mongoose.model('Car', carSchema);

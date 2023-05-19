@@ -11,3 +11,5 @@ This application will help people keep track of their vehicles MPG and determine
 - cors --> https://www.npmjs.com/package/cors
 - mongodb --> https://www.npmjs.com/package/mongodb
 - mogoose --> https://www.npmjs.com/package/mongoose
+- jsonwebtoken --> https://www.npmjs.com/package/jsonwebtoken
+- cookie-parser --> https://www.npmjs.com/package/cookie-parser
