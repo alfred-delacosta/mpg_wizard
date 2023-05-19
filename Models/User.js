@@ -24,7 +24,7 @@ userSchema.virtual('fullName').get(function() {
 });
 
 userSchema.methods.generateJwt = function() {
-    const expiresIn = '2d';
+    const expiresIn = '15m';
 
     return jwt.sign({
         sub: this.id
@@ -38,5 +38,18 @@ userSchema.methods.generateRefreshToken = function() {
         sub: this.id,
     }, JWT_REFRESH_SECRET, { expiresIn });
 }
+
+userSchema.methods.generatePasswordResetJWT = function() {
+    const secret = this.password + "-" + this.createdAt;
+    const expiresIn = '4h';
+
+    return jwt.sign({
+        sub: this.id
+    }, secret, { expiresIn });
+};
+
+userSchema.methods.getPasswordResetSecret = function() {
+    return this.password + "-" + this.createdAt;
+};
 
 module.exports = mongoose.model('User', userSchema);

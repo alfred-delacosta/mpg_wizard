@@ -6,6 +6,7 @@ const { DEV_PORT, DB_CONNECTION_STRING } = process.env;
 const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const passport = require('passport');
 
 // NodeJS modules
 const fs = require('node:fs/promises');
@@ -22,11 +23,15 @@ async function main() {
   // Connect to db
   let db = await mongoose.connect(DB_CONNECTION_STRING);
 
+  // Passport auth setup
+  require(path.join(__dirname, 'Auth', 'Auth'))(passport);
+
 
   // app.use statements
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(cors());
   app.use(express.json());
+  app.use(passport.initialize());
 
   app.use(cookieParser());
   app.use('/api/cars', carsApi);
