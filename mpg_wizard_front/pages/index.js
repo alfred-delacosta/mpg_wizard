@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { jwt } from '@/utils/state'
 
-export default function Home() {
+export default function Home() {  
   return (
     <>
       <Head>
@@ -11,6 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+          <div>The JWT is: {jwt.accessToken}</div>
         <section>
           <h1>Welcome to MPG Wizard 🚗</h1>
         </section>
